@@ -7,11 +7,15 @@
 
 import UIKit
 
+enum Link: String {
+    case spaceXURL = "https://api.spacexdata.com/v5/launches/latest"
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 
