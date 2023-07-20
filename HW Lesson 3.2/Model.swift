@@ -9,24 +9,24 @@ import Foundation
 
 struct SpaceX: Decodable {
     let links: Links?
-    let static_fire_date_utc: Any?
-    let static_fire_date_unix: Any?
+    let static_fire_date_utc: String?
+    let static_fire_date_unix: String?
     let net: Bool?
     let window: String?
     let rocket: String?
     let success: Bool?
-    let failures: [Any]?
-    let details: Any?
+    let failures: [Int]?
+    let details: String?
 }
 
 struct Links: Decodable {
     let patch: Patch?
     let reddit: Reddit?
     let flickr: Flickr?
-    let presskit: Any?
+    let presskit: String?
     let webcast: String?
     let youtube_id: String?
-    let article: Any?
+    let article: String?
     let wikipedia: String?
 }
 
@@ -36,13 +36,13 @@ struct Patch: Decodable {
 }
 
 struct Reddit: Decodable {
-    let campaign: Any?
+    let campaign: String?
     let launch: String?
-    let media: Any?
-    let recovery: Any?
+    let media: String?
+    let recovery: String?
 }
 
 struct Flickr: Decodable {
-    let small: [Any]?
-    let original: [Any]?
+    let small: [Int]?
+    let original: [Int]?
 }
