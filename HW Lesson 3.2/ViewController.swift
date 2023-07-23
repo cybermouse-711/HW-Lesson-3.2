@@ -8,7 +8,10 @@
 import UIKit
 
 enum Link: String {
-    case spaceXURL = "https://api.spacexdata.com/v5/launches/latest"
+    case spaceXJSON = "https://api.spacexdata.com/v5/launches/latest"
+    case spaseXComandImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/SpaceX_Crew-5_Official_Portrait.jpg/600px-SpaceX_Crew-5_Official_Portrait.jpg"
+    case spaceXCrew5Image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/NASA’s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg/600px-NASA’s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg"
+    case spaceXShatlImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg/810px-SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg"
 }
 
 class ViewController: UIViewController {
@@ -22,9 +25,9 @@ class ViewController: UIViewController {
 extension ViewController {
     
     private func fetchSpaceX() {
-        guard let url = URL(string: Link.spaceXURL.rawValue) else { return }
+        guard let url = URL(string: Link.spaceXJSON.rawValue) else { return }
         
-        URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+        URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 print(error?.localizedDescription ?? "Not error")
                 return
