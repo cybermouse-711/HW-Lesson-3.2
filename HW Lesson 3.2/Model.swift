@@ -7,31 +7,21 @@
 
 import Foundation
 
+//MARK: Models
 struct SpaceX: Decodable {
     let links: Links
-    let static_fire_date_utc: String?
-    let static_fire_date_unix: String?
-    let net: Bool
-    let window: String?
-    let rocket: String
-    let success: Bool
-    let failures: [Int]?
-    let details: String?
-    let crew: Crew
-    let flight_number: Int
+    let crew: [Crew]
+    let flightNumber: Int
     let name: String
-    let date_utc: String
-    let date_local: String
+    let dateUtc: String
+    let dateLocal: String
 }
 
 struct Links: Decodable {
     let patch: Patch
     let reddit: Reddit
-    let flickr: Flickr?
-    let presskit: String?
     let webcast: String
-    let youtube_id: String
-    let article: String?
+    let youtubeId: String
     let wikipedia: String
 }
 
@@ -41,24 +31,53 @@ struct Patch: Decodable {
 }
 
 struct Reddit: Decodable {
-    let campaign: String?
     let launch: String
-    let media: String?
-    let recovery: String?
-}
-
-struct Flickr: Decodable {
-    let small: [Int]?
-    let original: [Int]?
 }
 
 struct Crew: Decodable {
-    let 0: Comand
-    let 1: Comand
-    let 2: Comand
-    let 3: Comand
-}
-
-struct Comand: Decodable {
+    let crew: String
     let role: String
 }
+
+//MARK: Private extensions
+private extension Crew {
+    enum CodingKeys: String, CodingKey {
+        case crew = "crew"
+        case role = "role"
+    }
+}
+
+private extension Reddit {
+    enum CodingKeys: String, CodingKey {
+        case launch = "launch"
+    }
+}
+
+private extension Patch {
+    enum CodingKeys: String, CodingKey {
+        case small = "small"
+        case large = "large"
+    }
+}
+
+private extension Links {
+    enum CodingKeys: String, CodingKey {
+        case patch = "patch"
+        case reddit = "reddit"
+        case webcast = "webcast"
+        case youtubeId = "youtube_id"
+        case wikipedia = "wikipedia"
+    }
+}
+
+private extension SpaceX {
+    enum CodingKeys: String, CodingKey {
+        case links = "links"
+        case crew = "crew"
+        case flightNumber = "flight_number"
+        case name = "name"
+        case dateUtc = "date_utc"
+        case dateLocal = "date_local"
+    }
+}
+
