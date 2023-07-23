@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: Models
+// MARK: - Models
 struct SpaceX: Decodable {
     let links: Links
     let crew: [Crew]
@@ -39,7 +39,7 @@ struct Crew: Decodable {
     let role: String
 }
 
-//MARK: Private extensions
+// MARK: - Private extensions
 private extension Crew {
     enum CodingKeys: String, CodingKey {
         case crew = "crew"
