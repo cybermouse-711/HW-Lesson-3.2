@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Vy-J9-fFn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pBJ-OF-Wkw">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,8 +21,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUt-mk-Oe4">
                                 <rect key="frame" x="16" y="70" width="288" height="176"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2Q-A6-IkA">
-                                <rect key="frame" x="136" y="445" width="48" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2Q-A6-IkA">
+                                <rect key="frame" x="136" y="494" width="48" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -38,6 +39,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="doc" catalog="system" id="i7d-PC-T7F"/>
+                    <navigationItem key="navigationItem" style="editor" id="gSv-LD-7Ce"/>
                     <connections>
                         <outlet property="infoImageView" destination="lUt-mk-Oe4" id="Lwt-us-m7y"/>
                         <outlet property="infoLabel" destination="R2Q-A6-IkA" id="seD-Iz-4Si"/>
@@ -45,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.875" y="829.22535211267609"/>
+            <point key="canvasLocation" x="77" y="850"/>
         </scene>
         <!--Comand-->
         <scene sceneID="mWd-Fi-AZ3">
@@ -58,8 +60,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mne-zr-OeV">
                                 <rect key="frame" x="16" y="70" width="288" height="179"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcD-NW-uOo">
-                                <rect key="frame" x="136" y="445" width="48" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcD-NW-uOo">
+                                <rect key="frame" x="136" y="494" width="48" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -76,6 +78,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Comand" image="person" catalog="system" id="qk6-At-GlQ"/>
+                    <navigationItem key="navigationItem" style="editor" id="DMi-Gq-fFe"/>
                     <connections>
                         <outlet property="comandImageView" destination="mne-zr-OeV" id="3bc-dP-wcT"/>
                         <outlet property="comandLabel" destination="RcD-NW-uOo" id="KoQ-oo-zBI"/>
@@ -83,26 +86,69 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLH-Ec-uhq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.25" y="686.61971830985919"/>
+            <point key="canvasLocation" x="966" y="849"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Aw5-cS-eDh">
+        <!--About Space X-->
+        <scene sceneID="FSX-0k-RaR">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="1Vy-J9-fFn" customClass="ViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iC8-q4-fhK">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
+                <collectionViewController id="BgH-TT-hlS" customClass="CollectionViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="RLh-ba-jpe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bVF-gM-696">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="action" id="BSR-vX-2js">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sjN-0a-bms" customClass="ActionCell">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comand" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvI-Ib-bl9">
+                                            <rect key="frame" x="18" y="49" width="92" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="textColor" systemColor="systemBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SvI-Ib-bl9" firstAttribute="centerY" secondItem="sjN-0a-bms" secondAttribute="centerY" id="ix0-1X-50r"/>
+                                        <constraint firstItem="SvI-Ib-bl9" firstAttribute="centerX" secondItem="sjN-0a-bms" secondAttribute="centerX" id="lj8-Pr-rBe"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="actionLabel" destination="SvI-Ib-bl9" id="OxO-sh-8Ef"/>
+                                    </connections>
+                                </collectionViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="BgH-TT-hlS" id="ndz-VC-SrM"/>
+                            <outlet property="delegate" destination="BgH-TT-hlS" id="uuw-le-n10"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="About Space X" id="CG1-M7-g2e"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="VcM-Xx-bc6"/>
-                        <segue destination="ZWu-2g-nnE" kind="relationship" relationship="viewControllers" id="11d-8d-Dgt"/>
-                        <segue destination="JTR-eu-4cv" kind="relationship" relationship="viewControllers" id="LTm-Hl-RQu"/>
+                        <segue destination="ZWu-2g-nnE" kind="show" identifier="showLauch" id="VDQ-i0-TbR"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showInfo" id="jVq-V6-fKi"/>
+                        <segue destination="JTR-eu-4cv" kind="show" identifier="showComand" id="iGM-3k-BVK"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8iN-4Q-HND" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJ1-Z4-aQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="77" y="23"/>
         </scene>
         <!--Launch-->
         <scene sceneID="BnC-cB-XZF">
@@ -113,7 +159,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="haz-iC-9Nu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lur-eX-Oti"/>
@@ -126,13 +172,32 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Launch" image="tray.and.arrow.up" catalog="system" id="XxJ-7A-bDL"/>
+                    <navigationItem key="navigationItem" style="editor" id="fN2-uo-RCi"/>
                     <connections>
                         <outlet property="launchImageView" destination="haz-iC-9Nu" id="vnw-it-6Qy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5U-Vc-eiX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-866.25" y="660.21126760563379"/>
+            <point key="canvasLocation" x="-838" y="848"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tGO-Td-QNw">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pBJ-OF-Wkw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QeR-8O-fWk">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BgH-TT-hlS" kind="relationship" relationship="rootViewController" id="14H-aL-dC7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xjK-ZW-wfr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="77" y="-731"/>
         </scene>
     </scenes>
     <resources>
@@ -141,6 +206,9 @@
         <image name="tray.and.arrow.up" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
