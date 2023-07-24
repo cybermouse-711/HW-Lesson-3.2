@@ -11,4 +11,8 @@ final class ComandViewController: UIViewController {
 
     @IBOutlet var comandImageView: UIImageView!
     @IBOutlet var comandLabel: UILabel!
+    
+    override func viewDidLoad() {
+        <#code#>
+    }
 }

@@ -11,4 +11,9 @@ final class LaunchViewController: UIViewController {
 
     @IBOutlet var launchImageView: UIImageView!
     
+    override func viewDidLoad() {
+        <#code#>
+    }
+    
+    
 }
