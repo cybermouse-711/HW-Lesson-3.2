@@ -9,5 +9,6 @@ import UIKit
 
 final class LaunchViewController: UIViewController {
 
-  
+    @IBOutlet var launchImageView: UIImageView!
+    
 }

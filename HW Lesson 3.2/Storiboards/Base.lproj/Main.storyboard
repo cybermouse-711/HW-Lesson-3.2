@@ -38,6 +38,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="doc" catalog="system" id="i7d-PC-T7F"/>
+                    <connections>
+                        <outlet property="infoImageView" destination="lUt-mk-Oe4" id="Lwt-us-m7y"/>
+                        <outlet property="infoLabel" destination="R2Q-A6-IkA" id="seD-Iz-4Si"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -72,6 +76,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Comand" image="person" catalog="system" id="qk6-At-GlQ"/>
+                    <connections>
+                        <outlet property="comandImageView" destination="mne-zr-OeV" id="3bc-dP-wcT"/>
+                        <outlet property="comandLabel" destination="RcD-NW-uOo" id="KoQ-oo-zBI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLH-Ec-uhq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -118,6 +126,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Launch" image="tray.and.arrow.up" catalog="system" id="XxJ-7A-bDL"/>
+                    <connections>
+                        <outlet property="launchImageView" destination="haz-iC-9Nu" id="vnw-it-6Qy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G5U-Vc-eiX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

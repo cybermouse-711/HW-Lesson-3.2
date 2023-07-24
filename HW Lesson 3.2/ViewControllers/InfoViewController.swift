@@ -9,6 +9,7 @@ import UIKit
 
 final class InfoViewController: UIViewController {
 
-   
-
+    @IBOutlet var infoImageView: UIImageView!
+    @IBOutlet var infoLabel: UILabel!
+    
 }

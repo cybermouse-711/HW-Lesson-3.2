@@ -9,5 +9,6 @@ import UIKit
 
 final class ComandViewController: UIViewController {
 
-
+    @IBOutlet var comandImageView: UIImageView!
+    @IBOutlet var comandLabel: UILabel!
 }
