@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Enum
+// MARK: - Enums
 enum Link {
     case spaceXJSON
     case spaseXComandImage
@@ -36,26 +36,43 @@ enum NetworkError: Error {
 
 // MARK: - Singlton
 final class NetworkManager {
+    
     static let shared = NetworkManager()
     
     private init() {}
+    
+    func fetchJSON(for url: URL, complition: @escaping(Result<Data, NetworkError>) -> Void) {
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data else {
+                complition(.failure(.noData))
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let spaceX = try decoder.decode(Data.self, from: data)
+                DispatchQueue.main.async {
+                    complition(.success(spaceX))
+                }
+            } catch _ {
+                complition(.failure(.decodingError))
+            }
+        }.resume()
+    }
+    
+    func fetchImage(for url: URL, complition: @escaping(Result<Data, NetworkError>) -> Void) {
+        
+        DispatchQueue.global().async {
+            guard let image = try? Data(contentsOf: url) else {
+                complition(.failure(.noData))
+                return
+            }
+            DispatchQueue.main.async {
+                complition(.success(image))
+            }
+        }
+    }
 }
 
-private func fetchSpaceX() {
-    guard let url = URL(string: Link.spaceXJSON.rawValue) else { return }
-    
-    URLSession.shared.dataTask(with: url) { data, _, error in
-        guard let data else {
-            print(error?.localizedDescription ?? "Not error")
-            return
-        }
-        
-        let decoder = JSONDecoder()
-        
-        do {
-            let spaceX = try decoder.decode(SpaceX.self, from: data)
-            print(spaceX)
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }.resume()
