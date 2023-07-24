@@ -80,3 +80,28 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+// MARK: - Networking
+extension CollectionViewController {
+    
+    func fetchSpaceX() {
+        spaseX.fetchJSON(for: Link.spaceXJSON.url) { [weak self] data, _, error in
+            guard let data else {
+                print(error?.localizedDescription ?? "Not error")
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                self?.courses = try decoder.decode([Course].self, from: data)
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            } catch let error {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
+}
+
