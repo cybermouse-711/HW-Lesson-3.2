@@ -52,7 +52,7 @@ final class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "action", for: indexPath)
-        guard let cell = cell as? ActionCell else { return UICollectionViewCell() }
+        guard let cell = cell as? CollectionViewCell else { return UICollectionViewCell() }
         cell.actionLabel.text = name[indexPath.item].name
         return cell
     }
@@ -77,31 +77,6 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width)
-    }
-}
-
-// MARK: - Networking
-extension CollectionViewController {
-    
-    func fetchSpaceX() {
-        spaseX.fetchJSON(for: Link.spaceXJSON.url) { [weak self] data, _, error in
-            guard let data else {
-                print(error?.localizedDescription ?? "Not error")
-                return
-            }
-            
-            do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                
-                self?.courses = try decoder.decode([Course].self, from: data)
-                DispatchQueue.main.async {
-                    self?.tableView.reloadData()
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.resume()
     }
 }
 

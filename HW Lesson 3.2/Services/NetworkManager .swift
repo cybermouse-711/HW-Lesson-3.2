@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Enums
+// MARK: - Enum
 enum Link {
     case spaceXJSON
     case spaseXComandImage
@@ -41,7 +41,7 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchJSON(for url: URL, complition: @escaping(Result<Data, NetworkError>) -> Void) {
+    func fetchJSON<T: Decodable>(_ type: T.Type, for url: URL, complition: @escaping(Result<T, NetworkError>) -> Void) {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
@@ -52,7 +52,7 @@ final class NetworkManager {
             let decoder = JSONDecoder()
             
             do {
-                let spaceX = try decoder.decode(Data.self, from: data)
+                let spaceX = try decoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
                     complition(.success(spaceX))
                 }

@@ -10,9 +10,40 @@ import UIKit
 final class InfoViewController: UIViewController {
 
     @IBOutlet var infoImageView: UIImageView!
-    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var infoLabel: UILabel!  
+    
+    private let spaseX = NetworkManager.shared
     
     override func viewDidLoad() {
-        <#code#>
+        fetchImage()
+        fetchJSON()
+    }
+    
+    private func fetchImage() {
+        spaseX.fetchImage(for: Link.spaceXShatlImage.url) { [weak self] result in
+            switch result {
+            case .success(let image):
+                self?.infoImageView.image = UIImage(data: image)
+            case .failure(let error):
+                print(error)
+                self?.showAlert()
+            }
+        }
+    }
+}
+
+// MARK: - Networking
+extension InfoViewController {
+    
+    func fetchJSON() {
+        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.infoLabel.text = data.name
+            case .failure(let error):
+                print(error)
+                self?.showAlert()
+            }
+        }
     }
 }

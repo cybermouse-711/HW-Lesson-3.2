@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIViewController {
-    func showAlert(withTitle title: String, andMessage message: String) {
+    func showAlert() {
         let alert = UIAlertController(title: "Oops!", message: "Data not received", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Close", style: .default) { _ in
         }
