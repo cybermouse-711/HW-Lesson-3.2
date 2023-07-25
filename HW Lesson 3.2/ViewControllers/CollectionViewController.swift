@@ -30,20 +30,6 @@ final class CollectionViewController: UICollectionViewController {
     
     private let spaseX = NetworkManager.shared
     private let name = Name.allCases
-    
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showLauch" {
-            guard let launchVC = segue.destination as? LaunchViewController else { return }
-            //launchVC.
-        } else if segue.identifier == "showInfo" {
-            guard let infohVC = segue.destination as? InfoViewController else { return }
-            //infoVC.
-        } else if segue.identifier == "showComand" {
-            guard let comandhVC = segue.destination as? ComandViewController else { return }
-            //comandVC.
-        }
-    }
 
     // MARK: UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,7 +39,7 @@ final class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "action", for: indexPath)
         guard let cell = cell as? CollectionViewCell else { return UICollectionViewCell() }
-        cell.actionLabel.text = name[indexPath.item].name
+        cell.actionCell.text = name[indexPath.item].name
         return cell
     }
 
@@ -76,7 +62,7 @@ final class CollectionViewController: UICollectionViewController {
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 100, height: UIScreen.main.bounds.width)
+        CGSize(width: UIScreen.main.bounds.width - 100, height: 100)
     }
 }
 

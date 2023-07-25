@@ -16,7 +16,7 @@ final class ComandViewController: UIViewController {
     
     override func viewDidLoad() {
         fetchImage()
-        comandLabel.text = ""
+        fetchJSON()
     }
     
     private func fetchImage() {
@@ -24,6 +24,22 @@ final class ComandViewController: UIViewController {
             switch result {
             case .success(let image):
                 self?.comandImageView.image = UIImage(data: image)
+            case .failure(let error):
+                print(error)
+                self?.showAlert()
+            }
+        }
+    }
+}
+
+// MARK: - Networking
+extension ComandViewController {
+    
+    func fetchJSON() {
+        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
+            switch result {
+            case .success(let data):
+                self?.comandLabel.text = data.name
             case .failure(let error):
                 print(error)
                 self?.showAlert()

@@ -9,4 +9,5 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet var actionCell: UILabel!
 }
