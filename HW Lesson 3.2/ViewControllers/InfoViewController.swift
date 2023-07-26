@@ -9,17 +9,21 @@ import UIKit
 
 // MARK: - UIViewController
 final class InfoViewController: UIViewController {
-
+   
+    // MARK: - @IBOutlet
     @IBOutlet var infoImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!  
     
+    // MARK: - Singlton
     private let spaseX = NetworkManager.shared
     
+    // MARK: - Override metods
     override func viewDidLoad() {
         fetchImage()
         fetchJSON()
     }
     
+    // MARK: - Private metods
     private func fetchImage() {
         spaseX.fetchImage(for: Link.spaceXShatlImage.url) { [weak self] result in
             switch result {

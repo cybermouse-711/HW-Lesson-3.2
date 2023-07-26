@@ -7,12 +7,16 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+// MARK: - TableViewCell
+final class TableViewCell: UITableViewCell {
     
+    // MARK: - @IBOutlet
     @IBOutlet var comandLabel: UILabel!
     
+    // MARK: - Private property
     private let spaseX = NetworkManager.shared
     
+    // MARK: - Metods
     func setupComandLabel(with crew: Crew) {
         
             comandLabel.text = "Crew member: \(crew.role)"

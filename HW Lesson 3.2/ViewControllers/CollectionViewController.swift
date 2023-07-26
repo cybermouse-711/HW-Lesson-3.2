@@ -28,7 +28,10 @@ enum Name: CaseIterable {
 // MARK: - CollectionViewController
 final class CollectionViewController: UICollectionViewController {
     
+    // MARK: - Singlton
     private let spaseX = NetworkManager.shared
+    
+    // MARK: - Private property
     private let name = Name.allCases
 
     // MARK: UICollectionViewDataSource

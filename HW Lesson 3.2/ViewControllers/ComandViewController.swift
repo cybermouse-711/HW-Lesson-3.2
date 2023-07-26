@@ -9,21 +9,19 @@ import UIKit
 
 // MARK: - UIViewController
 final class ComandViewController: UIViewController {
-
+    
+    // MARK: - @IBOutlet
     @IBOutlet var comandImageView: UIImageView!
-    @IBOutlet var tableView: UITableView!
     
+    // MARK: - Singlton
     private let spaseX = NetworkManager.shared
-    private var crew: [Crew] = []
     
-    
+    // MARK: - Override metods
     override func viewDidLoad() {
         fetchImage()
-        fetchJSON()
-        
-        
     }
     
+    // MARK: - Private metods
     private func fetchImage() {
         spaseX.fetchImage(for: Link.spaseXComandImage.url) { [weak self] result in
             switch result {
@@ -37,34 +35,3 @@ final class ComandViewController: UIViewController {
     }
 }
 
-// MARK: - Networking
-extension ComandViewController {
-    
-    func fetchJSON() {
-        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
-            switch result {
-            case .success(let data):
-                self?.crew = data.crew
-            case .failure(let error):
-                print(error)
-                self?.showAlert()
-            }
-        }
-    }
-}
-
-// MARK: - UITableViewDataSource
-extension ComandViewController {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        crew.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath)
-        guard let cell = cell as? TableViewCell else { return UITableViewCell() }
-        let member = crew[indexPath.row]
-        cell.setupComandLabel(with: member)
-        return cell
-    }
-}

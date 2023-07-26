@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C62C00032A7160D700333B32 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62C00022A7160D700333B32 /* TableView.swift */; };
 		C62CFFFA2A705A3300333B32 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62CFFF92A705A3300333B32 /* CollectionViewCell.swift */; };
 		C62CFFFB2A70618200333B32 /* NetworkManager .swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A1EEF32A6DC020008DC072 /* NetworkManager .swift */; };
 		C62CFFFD2A713EA900333B32 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62CFFFC2A713EA900333B32 /* TableViewCell.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C62C00022A7160D700333B32 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		C62CFFF92A705A3300333B32 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		C62CFFFC2A713EA900333B32 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		C6A1EEDA2A6880DF008DC072 /* HW Lesson 3.2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW Lesson 3.2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,8 +58,9 @@
 		C62CFFF62A6F09B300333B32 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C62CFFF92A705A3300333B32 /* CollectionViewCell.swift */,
+				C62C00022A7160D700333B32 /* TableView.swift */,
 				C62CFFFC2A713EA900333B32 /* TableViewCell.swift */,
+				C62CFFF92A705A3300333B32 /* CollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				C6A1EEF82A6DC879008DC072 /* InfoViewController.swift in Sources */,
 				C6A1EEDE2A6880DF008DC072 /* AppDelegate.swift in Sources */,
 				C62CFFFD2A713EA900333B32 /* TableViewCell.swift in Sources */,
+				C62C00032A7160D700333B32 /* TableView.swift in Sources */,
 				C6A1EEE02A6880DF008DC072 /* SceneDelegate.swift in Sources */,
 				C6A1EEFA2A6DC8D6008DC072 /* ComandViewController.swift in Sources */,
 				C6A1EEF22A688ACA008DC072 /* SpaceX.swift in Sources */,

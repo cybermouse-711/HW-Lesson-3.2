@@ -10,5 +10,6 @@ import UIKit
 // MARK: - CollectionViewCell
 final class CollectionViewCell: UICollectionViewCell {
     
+    // MARK: - @IBOutlet
     @IBOutlet var actionCell: UILabel!
 }
