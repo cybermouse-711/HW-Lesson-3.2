@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+// MARK: - CollectionViewCell
+final class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var actionCell: UILabel!
 }

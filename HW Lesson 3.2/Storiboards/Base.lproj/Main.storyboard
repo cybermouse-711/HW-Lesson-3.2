@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Info-->
+        <!--Info about Crew-5-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="InfoViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -25,8 +25,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2Q-A6-IkA">
-                                <rect key="frame" x="136" y="363" width="48" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="16" y="343" width="288" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -34,15 +34,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R2Q-A6-IkA" secondAttribute="trailing" constant="16" id="E8p-OS-bZV"/>
                             <constraint firstItem="R2Q-A6-IkA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NtP-NM-pxS"/>
+                            <constraint firstItem="R2Q-A6-IkA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="bue-ZZ-F4a"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lUt-mk-Oe4" secondAttribute="trailing" constant="16" id="gL8-Ke-jjV"/>
                             <constraint firstItem="lUt-mk-Oe4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="jZs-G6-aU9"/>
-                            <constraint firstItem="R2Q-A6-IkA" firstAttribute="top" secondItem="lUt-mk-Oe4" secondAttribute="bottom" constant="70" id="pOT-ux-Ho6"/>
+                            <constraint firstItem="R2Q-A6-IkA" firstAttribute="top" secondItem="lUt-mk-Oe4" secondAttribute="bottom" constant="50" id="pOT-ux-Ho6"/>
                             <constraint firstItem="lUt-mk-Oe4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="qlp-CD-cFm"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Info" image="doc" catalog="system" id="i7d-PC-T7F"/>
-                    <navigationItem key="navigationItem" style="editor" id="gSv-LD-7Ce"/>
+                    <navigationItem key="navigationItem" title="Info about Crew-5" id="gSv-LD-7Ce"/>
                     <connections>
                         <outlet property="infoImageView" destination="lUt-mk-Oe4" id="Lwt-us-m7y"/>
                         <outlet property="infoLabel" destination="R2Q-A6-IkA" id="seD-Iz-4Si"/>
@@ -52,7 +54,7 @@
             </objects>
             <point key="canvasLocation" x="76.875" y="849.29577464788736"/>
         </scene>
-        <!--Comand-->
+        <!--Comand Crew-5-->
         <scene sceneID="mWd-Fi-AZ3">
             <objects>
                 <viewController id="JTR-eu-4cv" customClass="ComandViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -61,30 +63,60 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mne-zr-OeV">
-                                <rect key="frame" x="16" y="94" width="288" height="241"/>
+                                <rect key="frame" x="16" y="94" width="288" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="mne-zr-OeV" secondAttribute="height" multiplier="288:241" id="XPE-JH-Hj4"/>
+                                    <constraint firstAttribute="width" secondItem="mne-zr-OeV" secondAttribute="height" multiplier="288:250" id="XPE-JH-Hj4"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcD-NW-uOo">
-                                <rect key="frame" x="136" y="405" width="48" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CrE-SP-Zaa">
+                                <rect key="frame" x="16" y="360" width="288" height="188"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XJB-sp-efx">
+                                    <size key="itemSize" width="197" height="74"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iBm-2R-OhG">
+                                        <rect key="frame" x="45.5" y="0.0" width="197" height="74"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QmU-fM-etY">
+                                            <rect key="frame" x="0.0" y="0.0" width="197" height="74"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RcD-NW-uOo">
+                                                    <rect key="frame" x="8" y="8" width="181" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="RcD-NW-uOo" firstAttribute="top" secondItem="QmU-fM-etY" secondAttribute="top" constant="8" id="8Tb-lF-uNf"/>
+                                                <constraint firstItem="RcD-NW-uOo" firstAttribute="leading" secondItem="QmU-fM-etY" secondAttribute="leading" constant="8" id="GJS-Ip-RyE"/>
+                                                <constraint firstAttribute="trailing" secondItem="RcD-NW-uOo" secondAttribute="trailing" constant="8" id="PSk-Ma-su1"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="197" height="74"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pez-vz-V80"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="RcD-NW-uOo" firstAttribute="top" secondItem="mne-zr-OeV" secondAttribute="bottom" constant="70" id="LOc-ZX-YiY"/>
-                            <constraint firstItem="RcD-NW-uOo" firstAttribute="centerX" secondItem="BVi-LX-eX0" secondAttribute="centerX" id="P4o-99-Gy6"/>
+                            <constraint firstItem="CrE-SP-Zaa" firstAttribute="top" secondItem="mne-zr-OeV" secondAttribute="bottom" constant="16" id="3YD-xe-0We"/>
+                            <constraint firstItem="pez-vz-V80" firstAttribute="trailing" secondItem="CrE-SP-Zaa" secondAttribute="trailing" constant="16" id="76D-jc-mDi"/>
+                            <constraint firstItem="CrE-SP-Zaa" firstAttribute="leading" secondItem="pez-vz-V80" secondAttribute="leading" constant="16" id="89e-i7-cJu"/>
                             <constraint firstItem="pez-vz-V80" firstAttribute="trailing" secondItem="mne-zr-OeV" secondAttribute="trailing" constant="16" id="d11-tb-kdp"/>
                             <constraint firstItem="mne-zr-OeV" firstAttribute="top" secondItem="pez-vz-V80" secondAttribute="top" constant="30" id="gTx-L5-3Ln"/>
                             <constraint firstItem="mne-zr-OeV" firstAttribute="leading" secondItem="pez-vz-V80" secondAttribute="leading" constant="16" id="gje-a4-NCY"/>
+                            <constraint firstItem="pez-vz-V80" firstAttribute="bottom" secondItem="CrE-SP-Zaa" secondAttribute="bottom" constant="20" id="tL5-sK-ZBw"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Comand" image="person" catalog="system" id="qk6-At-GlQ"/>
-                    <navigationItem key="navigationItem" style="editor" id="DMi-Gq-fFe"/>
+                    <navigationItem key="navigationItem" title="Comand Crew-5" id="DMi-Gq-fFe"/>
                     <connections>
                         <outlet property="comandImageView" destination="mne-zr-OeV" id="3bc-dP-wcT"/>
                         <outlet property="comandLabel" destination="RcD-NW-uOo" id="KoQ-oo-zBI"/>
@@ -94,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="965.625" y="848.23943661971828"/>
         </scene>
-        <!--About Space X-->
+        <!--About Crew-5-->
         <scene sceneID="FSX-0k-RaR">
             <objects>
                 <collectionViewController id="BgH-TT-hlS" customClass="CollectionViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,7 +177,7 @@
                             <outlet property="delegate" destination="BgH-TT-hlS" id="uuw-le-n10"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="About Space X" id="CG1-M7-g2e"/>
+                    <navigationItem key="navigationItem" title="About Crew-5" id="CG1-M7-g2e"/>
                     <connections>
                         <segue destination="ZWu-2g-nnE" kind="show" identifier="showLauch" id="VDQ-i0-TbR"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showInfo" id="jVq-V6-fKi"/>
@@ -156,7 +188,7 @@
             </objects>
             <point key="canvasLocation" x="77" y="23"/>
         </scene>
-        <!--Launch-->
+        <!--Launch Crew-5-->
         <scene sceneID="BnC-cB-XZF">
             <objects>
                 <viewController id="ZWu-2g-nnE" customClass="LaunchViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
@@ -178,7 +210,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Launch" image="tray.and.arrow.up" catalog="system" id="XxJ-7A-bDL"/>
-                    <navigationItem key="navigationItem" style="editor" id="fN2-uo-RCi"/>
+                    <navigationItem key="navigationItem" title="Launch Crew-5" style="browser" id="fN2-uo-RCi"/>
                     <connections>
                         <outlet property="launchImageView" destination="haz-iC-9Nu" id="vnw-it-6Qy"/>
                     </connections>

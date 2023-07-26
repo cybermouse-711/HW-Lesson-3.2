@@ -21,9 +21,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Space X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-ke-ZA0">
-                                <rect key="frame" x="88.5" y="90" width="143" height="48"/>
+                                <rect key="frame" x="88.5" y="70" width="143" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crew-5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5b-VE-uVw">
+                                <rect key="frame" x="128.5" y="133" width="63.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -31,7 +37,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="gIF-7O-REC" secondAttribute="bottom" id="0ba-mP-JOS"/>
-                            <constraint firstItem="RoI-ke-ZA0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="7zB-2Q-q2q"/>
+                            <constraint firstItem="RoI-ke-ZA0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="7zB-2Q-q2q"/>
+                            <constraint firstItem="b5b-VE-uVw" firstAttribute="top" secondItem="RoI-ke-ZA0" secondAttribute="bottom" constant="15" id="JVT-KA-kja"/>
+                            <constraint firstItem="b5b-VE-uVw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Pmi-Ei-L40"/>
                             <constraint firstItem="RoI-ke-ZA0" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WdK-oR-Py0"/>
                             <constraint firstItem="gIF-7O-REC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="biM-rH-LpH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gIF-7O-REC" secondAttribute="trailing" id="jPv-sL-z10"/>

@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - UIViewController
 final class ComandViewController: UIViewController {
 
     @IBOutlet var comandImageView: UIImageView!
@@ -39,7 +40,7 @@ extension ComandViewController {
         spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.comandLabel.text = data.name
+                self?.comandLabel.text = self?.setupComandLabel(with: data)
             case .failure(let error):
                 print(error)
                 self?.showAlert()

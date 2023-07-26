@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - UIViewController
 final class InfoViewController: UIViewController {
 
     @IBOutlet var infoImageView: UIImageView!
@@ -39,7 +40,7 @@ extension InfoViewController {
         spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.infoLabel.text = data.name
+                self?.infoLabel.text = self?.setupInfoLabel(with: data)
             case .failure(let error):
                 print(error)
                 self?.showAlert()

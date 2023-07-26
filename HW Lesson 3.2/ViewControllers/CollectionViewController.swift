@@ -58,7 +58,7 @@ final class CollectionViewController: UICollectionViewController {
     }
 }
 
-// MARK: - Extension
+// MARK: - Extensions
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

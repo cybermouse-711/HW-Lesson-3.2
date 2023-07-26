@@ -21,7 +21,7 @@ enum Link {
         case .spaseXComandImage:
             return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/SpaceX_Crew-5_Official_Portrait.jpg/600px-SpaceX_Crew-5_Official_Portrait.jpg")!
         case .spaceXCrew5Image:
-            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/NASA’s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg/600px-NASA’s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg")!
+            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/NASA%E2%80%99s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg/600px-NASA%E2%80%99s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg")!
         case .spaceXShatlImage:
             return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg/810px-SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg")!
         }

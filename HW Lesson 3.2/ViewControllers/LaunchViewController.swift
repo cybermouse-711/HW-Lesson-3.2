@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: - UIViewController
 final class LaunchViewController: UIViewController {
 
     @IBOutlet var launchImageView: UIImageView!
@@ -15,6 +16,8 @@ final class LaunchViewController: UIViewController {
     
     override func viewDidLoad() {
         fetchImage()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     private func fetchImage() {
