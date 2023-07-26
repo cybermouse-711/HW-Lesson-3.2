@@ -17,7 +17,6 @@ protocol UITableViewDelegate {
 // MARK: - UIViewController
 final class ComandViewController: UIViewController {
 
-    
     // MARK: - @IBOutlet
     @IBOutlet var comandImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
@@ -32,8 +31,11 @@ final class ComandViewController: UIViewController {
     // MARK: - Override metods
     override func viewDidLoad() {
         fetchImage()
-        fetchJSON()
+      //  fetchJSON()
         self.navigationController?.navigationBar.tintColor = UIColor.gray
+        
+       // tableView(tableView, cellForRowAt: <#T##IndexPath#>)
+        //tableView(tableView, numberOfRowsInSection: <#T##Int#>)
     }
     
     // MARK: - Private metods
@@ -50,6 +52,7 @@ final class ComandViewController: UIViewController {
     }
 }
 
+/*
 // MARK: - Networking
 extension ComandViewController {
     
@@ -57,7 +60,7 @@ extension ComandViewController {
         spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.tableView = data
+                self?.tableView = self?.setupTableView(with: data)
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.showAlert()
@@ -65,6 +68,7 @@ extension ComandViewController {
         }
     }
 }
+*/
 
 // MARK: - UITableViewDelegate
 extension ComandViewController: UITableViewDelegate {
@@ -82,3 +86,4 @@ extension ComandViewController: UITableViewDelegate {
         return cell
     }
 }
+

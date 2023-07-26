@@ -37,3 +37,13 @@ Link:
         return label
     }
 }
+
+// MARK: - Extensions for UITableView
+extension UIViewController {
+    
+    func setupTableView(with spaceX: SpaceX) {} /* -> UITableView {
+        var tableView: UITableView
+        
+        return tableView
+    } */
+}
