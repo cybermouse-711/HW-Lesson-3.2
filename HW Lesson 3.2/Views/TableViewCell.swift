@@ -13,9 +13,6 @@ final class TableViewCell: UITableViewCell {
     // MARK: - @IBOutlet
     @IBOutlet var comandLabel: UILabel!
     
-    // MARK: - Private property
-    private let spaseX = NetworkManager.shared
-    
     // MARK: - Metods
     func setupComandLabel(with crew: Crew) {
         

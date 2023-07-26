@@ -29,7 +29,7 @@ final class LaunchViewController: UIViewController {
             case .success(let image):
                 self?.launchImageView.image = UIImage(data: image)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
                 self?.showAlert()
             }
         }

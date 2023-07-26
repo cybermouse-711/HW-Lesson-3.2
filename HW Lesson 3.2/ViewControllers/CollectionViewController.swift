@@ -35,11 +35,19 @@ final class CollectionViewController: UICollectionViewController {
     private let name = Name.allCases
 
     // MARK: UICollectionViewDataSource
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        
         name.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "action", for: indexPath)
         guard let cell = cell as? CollectionViewCell else { return UICollectionViewCell() }
         cell.actionCell.text = name[indexPath.item].name
@@ -47,7 +55,10 @@ final class CollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDelegate
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
         let action = name[indexPath.item]
         
         switch action {
