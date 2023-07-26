@@ -36,18 +36,4 @@ Link:
 """
         return label
     }
-    
-    func setupComandLabel(with spaceX: SpaceX) -> String {
-        var label = ""
-        
-        var c: [Crew] = []
-        
-        for crew in spaceX.crew {
-         
-            label = "Crew member: \(crew.role)"
-                
-        
-        }
-        return label
-    }
 }
