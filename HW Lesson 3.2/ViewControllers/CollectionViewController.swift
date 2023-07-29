@@ -39,7 +39,6 @@ final class CollectionViewController: UICollectionViewController {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        
         name.count
     }
 
@@ -51,6 +50,7 @@ final class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "action", for: indexPath)
         guard let cell = cell as? CollectionViewCell else { return UICollectionViewCell() }
         cell.actionCell.text = name[indexPath.item].name
+        cell.actionImage.image = UIImage(named: "actionImage")
         return cell
     }
 

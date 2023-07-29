@@ -187,16 +187,18 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Vg3-bs-yZP">
                                         <rect key="frame" x="108" y="0.0" width="180" height="83"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kau-yU-z0r">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter ID Member" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kau-yU-z0r">
                                                 <rect key="frame" x="0.0" y="0.0" width="180" height="34"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="180" id="5eS-sR-KRc"/>
                                                 </constraints>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bjU-Bd-Coz">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter role Member" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bjU-Bd-Coz">
                                                 <rect key="frame" x="0.0" y="49" width="180" height="34"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -242,33 +244,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bVF-gM-696">
-                            <size key="itemSize" width="128" height="128"/>
+                            <size key="itemSize" width="289" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="action" id="BSR-vX-2js" customClass="CollectionViewCell" customModule="HW_Lesson_3_2" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <rect key="frame" x="15.5" y="0.0" width="289" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="sjN-0a-bms" customClass="ActionCell">
-                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="289" height="128"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6J-Lr-Ygg">
-                                            <rect key="frame" x="23" y="43" width="82.5" height="42"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                            <color key="textColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <rect key="frame" x="155" y="44.5" width="78" height="39.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                            <color key="textColor" systemColor="systemBlueColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OEV-xR-K4h">
+                                            <rect key="frame" x="20" y="14" width="100" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="JmB-fB-E51"/>
+                                                <constraint firstAttribute="width" constant="100" id="qef-jp-iIs"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="g6J-Lr-Ygg" firstAttribute="centerX" secondItem="sjN-0a-bms" secondAttribute="centerX" id="cQQ-t6-2Bk"/>
+                                        <constraint firstItem="g6J-Lr-Ygg" firstAttribute="leading" secondItem="OEV-xR-K4h" secondAttribute="trailing" constant="35" id="Qh7-Um-xFr"/>
+                                        <constraint firstItem="OEV-xR-K4h" firstAttribute="leading" secondItem="sjN-0a-bms" secondAttribute="leading" constant="20" id="bsq-TL-3yY"/>
                                         <constraint firstItem="g6J-Lr-Ygg" firstAttribute="centerY" secondItem="sjN-0a-bms" secondAttribute="centerY" id="crB-DZ-xak"/>
+                                        <constraint firstItem="OEV-xR-K4h" firstAttribute="centerY" secondItem="sjN-0a-bms" secondAttribute="centerY" id="fL0-DY-2Uc"/>
                                     </constraints>
                                 </collectionViewCellContentView>
-                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <size key="customSize" width="289" height="128"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="20"/>
@@ -276,6 +293,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <outlet property="actionCell" destination="g6J-Lr-Ygg" id="dcj-ON-fRD"/>
+                                    <outlet property="actionImage" destination="OEV-xR-K4h" id="alC-sN-HKc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -293,7 +311,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJ1-Z4-aQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="77" y="23"/>
+            <point key="canvasLocation" x="76.875" y="22.183098591549296"/>
         </scene>
         <!--Launch-->
         <scene sceneID="BnC-cB-XZF">
@@ -357,6 +375,12 @@
         <image name="tray.and.arrow.up" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

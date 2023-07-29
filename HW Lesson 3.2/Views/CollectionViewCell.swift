@@ -12,4 +12,6 @@ final class CollectionViewCell: UICollectionViewCell {
     
     // MARK: - @IBOutlet
     @IBOutlet var actionCell: UILabel!
+    @IBOutlet var actionImage: UIImageView!
+    
 }
