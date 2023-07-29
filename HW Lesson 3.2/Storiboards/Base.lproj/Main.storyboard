@@ -69,13 +69,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mne-zr-OeV">
-                                <rect key="frame" x="0.0" y="112.5" width="320" height="272"/>
+                                <rect key="frame" x="0.0" y="112.5" width="320" height="266.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="mne-zr-OeV" secondAttribute="height" multiplier="288:245" id="XPE-JH-Hj4"/>
+                                    <constraint firstAttribute="width" secondItem="mne-zr-OeV" secondAttribute="height" multiplier="288:240" id="XPE-JH-Hj4"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uuT-lD-kOV">
-                                <rect key="frame" x="0.0" y="400.5" width="320" height="147.5"/>
+                                <rect key="frame" x="0.0" y="395" width="320" height="153"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" id="Koh-Dl-lkE" customClass="TableViewCell" customModule="HW_Lesson_3_2" customModuleProvider="target">
