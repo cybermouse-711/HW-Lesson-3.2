@@ -40,7 +40,7 @@ final class ComandViewController: UIViewController {
     
     // MARK: - Private metods
     private func fetchImage() {
-        spaseX.fetchImage(for: Link.spaseXComandImage.url) { [weak self] result in
+        spaseX.fetchImage(for: Link.spaseXComandImage) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.comandImageView.image = UIImage(data: image)

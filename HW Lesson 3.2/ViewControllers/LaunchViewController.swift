@@ -24,7 +24,7 @@ final class LaunchViewController: UIViewController {
     
     // MARK: - Private metods
     private func fetchImage() {
-        spaseX.fetchImage(for: Link.spaceXCrew5Image.url) { [weak self] result in
+        spaseX.fetchImage(for: Link.spaceXCrew5Image) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.launchImageView.image = UIImage(data: image)

@@ -27,7 +27,7 @@ final class InfoViewController: UIViewController {
     // MARK: - Private metods
     private func fetchImage() {
         
-        spaseX.fetchImage(for: Link.spaceXShatlImage.url) { [weak self] result in
+        spaseX.fetchImage(for: Link.spaceXShatlImage) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.infoImageView.image = UIImage(data: image)
@@ -63,7 +63,7 @@ Link:
 extension InfoViewController {
     
     func fetchJSON() {
-        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
+        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.infoLabel.text = self?.setupInfoLabel(with: data)

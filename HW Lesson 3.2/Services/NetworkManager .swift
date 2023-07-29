@@ -9,24 +9,12 @@ import Foundation
 
 // MARK: - Enum
 enum Link {
-    case spaceXJSON
-    case spaseXComandImage
-    case spaceXCrew5Image
-    case spaceXShatlImage
-    
-    var url: URL {
-        switch self {
-        case .spaceXJSON:
-            return URL(string: "https://api.spacexdata.com/v5/launches/latest")!
-        case .spaseXComandImage:
-            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/SpaceX_Crew-5_Official_Portrait.jpg/600px-SpaceX_Crew-5_Official_Portrait.jpg")!
-        case .spaceXCrew5Image:
-            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/NASA%E2%80%99s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg/600px-NASA%E2%80%99s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg")!
-        case .spaceXShatlImage:
-            return URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg/810px-SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg")!
-        }
-    }
+    static let spaceXJSON = "https://api.spacexdata.com/v5/launches/latest"
+    static let spaseXComandImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/SpaceX_Crew-5_Official_Portrait.jpg/600px-SpaceX_Crew-5_Official_Portrait.jpg"
+    static let spaceXCrew5Image =  "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/NASA%E2%80%99s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg/600px-NASA%E2%80%99s_SpaceX_Crew-5_Launch_%28NHQ202210050006%29.jpg"
+    static let spaceXShatlImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg/810px-SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg"
 }
+
 
 enum NetworkError: Error {
     case invalidURL
@@ -41,11 +29,16 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchJSON<T: Decodable>(_ type: T.Type, for url: URL, complition: @escaping(Result<T, NetworkError>) -> Void) {
+    func fetchJSON<T: Decodable>(_ type: T.Type, for urlString: String, completion: @escaping(Result<T, NetworkError>) -> Void) {
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.invalidURL))
+            return
+        }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
-                complition(.failure(.noData))
+                completion(.failure(.noData))
                 return
             }
             
@@ -54,23 +47,28 @@ final class NetworkManager {
             do {
                 let spaceX = try decoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
-                    complition(.success(spaceX))
+                    completion(.success(spaceX))
                 }
             } catch _ {
-                complition(.failure(.decodingError))
+                completion(.failure(.decodingError))
             }
         }.resume()
     }
     
-    func fetchImage(for url: URL, complition: @escaping(Result<Data, NetworkError>) -> Void) {
+    func fetchImage(for urlString: String, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+        
+        guard let url = URL(string: urlString) else {
+            completion(.failure(.invalidURL))
+            return
+        }
         
         DispatchQueue.global().async {
             guard let image = try? Data(contentsOf: url) else {
-                complition(.failure(.noData))
+                completion(.failure(.noData))
                 return
             }
             DispatchQueue.main.async {
-                complition(.success(image))
+                completion(.success(image))
             }
         }
     }
