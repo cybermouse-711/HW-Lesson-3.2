@@ -7,13 +7,6 @@
 
 import UIKit
 
-// MARK: - Protocol
-protocol UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-}
-
 // MARK: - UIViewController
 final class ComandViewController: UIViewController {
 
@@ -31,11 +24,9 @@ final class ComandViewController: UIViewController {
     // MARK: - Override metods
     override func viewDidLoad() {
         fetchImage()
-      //  fetchJSON()
+        fetchJSON()
         self.navigationController?.navigationBar.tintColor = UIColor.gray
-        
-       // tableView(tableView, cellForRowAt: <#T##IndexPath#>)
-        //tableView(tableView, numberOfRowsInSection: <#T##Int#>)
+        tableView.dataSource = self
     }
     
     // MARK: - Private metods
@@ -52,15 +43,16 @@ final class ComandViewController: UIViewController {
     }
 }
 
-/*
+
 // MARK: - Networking
 extension ComandViewController {
     
     func fetchJSON() {
-        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON.url) { [weak self] result in
+        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON) { [weak self] result in
             switch result {
             case .success(let data):
-                self?.tableView = self?.setupTableView(with: data)
+                self?.crew = data.crew
+                self?.tableView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.showAlert()
@@ -68,10 +60,10 @@ extension ComandViewController {
         }
     }
 }
-*/
 
-// MARK: - UITableViewDelegate
-extension ComandViewController: UITableViewDelegate {
+
+// MARK: - UITableViewDataSourse
+extension ComandViewController: UITableViewDataSource {
     
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
