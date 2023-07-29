@@ -39,6 +39,26 @@ final class InfoViewController: UIViewController {
     }
 }
 
+// MARK: - Extensions for UILabel
+extension UIViewController {
+    
+    func setupInfoLabel(with spaceX: SpaceX) -> String {
+        var label = ""
+        
+        label = """
+Name: \(spaceX.name)
+Date UTC: \(spaceX.dateUtc)
+Data LOCAL: \(spaceX.dateLocal)
+
+Link:
+    Webcast: \(spaceX.links.webcast)
+    Youtub:   \(spaceX.links.youtubeId)
+    Wikipedia   \(spaceX.links.wikipedia)
+"""
+        return label
+    }
+}
+
 // MARK: - Networking
 extension InfoViewController {
     
@@ -54,3 +74,4 @@ extension InfoViewController {
         }
     }
 }
+
