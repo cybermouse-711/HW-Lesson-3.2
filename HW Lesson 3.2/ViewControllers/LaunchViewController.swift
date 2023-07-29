@@ -19,7 +19,7 @@ final class LaunchViewController: UIViewController {
     // MARK: - Override metods
     override func viewDidLoad() {
         fetchImage()
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = UIColor.white
     }
     
     // MARK: - Private metods
