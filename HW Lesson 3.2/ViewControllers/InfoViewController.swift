@@ -12,7 +12,8 @@ final class InfoViewController: UIViewController {
    
     // MARK: - @IBOutlet
     @IBOutlet var infoImageView: UIImageView!
-    @IBOutlet var infoLabel: UILabel!  
+    @IBOutlet var infoLabel: UILabel!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Singlton
     private let spaseX = NetworkManager.shared
@@ -22,6 +23,8 @@ final class InfoViewController: UIViewController {
         fetchImage()
         fetchJSON()
         self.navigationController?.navigationBar.tintColor = UIColor.gray
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
     
     // MARK: - Private metods
@@ -47,13 +50,14 @@ extension UIViewController {
         
         label = """
 Name: \(spaceX.name)
-Date UTC: \(spaceX.dateUtc)
-Data LOCAL: \(spaceX.dateLocal)
+    Date UTC: \(spaceX.dateUtc)
+    Data LOCAL: \(spaceX.dateLocal)
+
 
 Link:
-    Webcast: \(spaceX.links.webcast)
-    Youtub:   \(spaceX.links.youtubeId)
-    Wikipedia   \(spaceX.links.wikipedia)
+        Webcast: \(spaceX.links.webcast)
+        Youtub:   \(spaceX.links.youtubeId)
+        Wikipedia   \(spaceX.links.wikipedia)
 """
         return label
     }
@@ -67,6 +71,7 @@ extension InfoViewController {
             switch result {
             case .success(let data):
                 self?.infoLabel.text = self?.setupInfoLabel(with: data)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.showAlert()

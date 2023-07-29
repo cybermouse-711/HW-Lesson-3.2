@@ -13,7 +13,7 @@ final class ComandViewController: UIViewController {
     // MARK: - @IBOutlet
     @IBOutlet var comandImageView: UIImageView!
     @IBOutlet var tableView: UITableView!
-    
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Singlton
     private let spaseX = NetworkManager.shared
@@ -27,6 +27,8 @@ final class ComandViewController: UIViewController {
         fetchJSON()
         self.navigationController?.navigationBar.tintColor = UIColor.gray
         tableView.dataSource = self
+        activityIndicator.startAnimating()
+        activityIndicator.hidesWhenStopped = true
     }
     
     // MARK: - Private metods
@@ -35,6 +37,7 @@ final class ComandViewController: UIViewController {
             switch result {
             case .success(let image):
                 self?.comandImageView.image = UIImage(data: image)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.showAlert()
