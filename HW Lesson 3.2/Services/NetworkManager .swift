@@ -32,49 +32,47 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchJSON<T: Decodable>(_ type: T.Type, for urlString: String, completion: @escaping(Result<T, NetworkError>) -> Void) {
+    func fetchJSON(for urlString: String, completion: @escaping(Result<[SpaceX], AFError>) -> Void) {
         
         guard let url = URL(string: urlString) else {
-            completion(.failure(.invalidURL))
+            completion(.failure(.invalidURL(url: "")))
             return
         }
         
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
-                completion(.failure(.noData))
-                print(error?.localizedDescription ?? "No error description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let spaceX = try decoder.decode(T.self, from: data)
-                DispatchQueue.main.async {
-                    completion(.success(spaceX))
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let data = SpaceX.getSpaceX(value)
+                    completion(.success(data))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch _ {
-                completion(.failure(.decodingError))
             }
-        }.resume()
     }
     
-    func fetchImage(for urlString: String, completion: @escaping(Result<Data, NetworkError>) -> Void) {
+    func fetchImage(for urlString: String, completion: @escaping(Result<Data, AFError>) -> Void) {
         
         guard let url = URL(string: urlString) else {
-            completion(.failure(.invalidURL))
+            completion(.failure(.invalidURL(url: "")))
             return
         }
         
-        DispatchQueue.global().async {
-            guard let image = try? Data(contentsOf: url) else {
-                completion(.failure(.noData))
-                return
+        AF.request(url)
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let image):
+                    completion(.success(image))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
-            DispatchQueue.main.async {
-                completion(.success(image))
-            }
-        }
+    }
+    
+    func postRequest() {
+        
     }
 }
 
