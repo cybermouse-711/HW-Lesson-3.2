@@ -11,12 +11,13 @@ import UIKit
 final class TableViewCell: UITableViewCell {
     
     // MARK: - @IBOutlet
-    @IBOutlet var comandLabel: UILabel!
+    @IBOutlet var idLabel: UILabel!
+    @IBOutlet var memberLabel: UILabel!
     
     // MARK: - Metods
     func setupComandLabel(with crew: Crew) {
         
-            comandLabel.text = "Crew member: \(crew.role)"
-            comandLabel.text = "ID: \(crew.crew)"
+        idLabel.text = "ID: \(crew.crew)"
+        memberLabel.text = "Crew member: \(crew.role)"
     }
 }

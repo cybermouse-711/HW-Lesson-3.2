@@ -46,7 +46,6 @@ final class ComandViewController: UIViewController {
     }
 }
 
-
 // MARK: - Networking
 extension ComandViewController {
     
@@ -63,7 +62,6 @@ extension ComandViewController {
         }
     }
 }
-
 
 // MARK: - UITableViewDataSourse
 extension ComandViewController: UITableViewDataSource {
