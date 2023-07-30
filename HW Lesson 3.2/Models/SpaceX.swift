@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Models
 struct SpaceX: Codable {
     let links: Links
-    let crew: [Crew]
+    var crew: [Crew]
     let flightNumber: Int
     let name: String
     let dateUtc: String
@@ -26,35 +26,14 @@ struct SpaceX: Codable {
     }
     
     init(courseData: [String: Any]) {
-        links = courseData["links"] as? Links ?? nil
-        crew = courseData["crew"] as? [Crew] ?? []
+        let linksDictionary = courseData["links"] as? [String: Any] ?? [:]
+        links = Links(courseData: linksDictionary)
+        let crewDictionary = courseData["crew"] as? [[String: Any]] ?? [[:]]
+        crew = Crew.getCrew(crewDictionary)
         flightNumber = courseData["flight_number"] as? Int ?? 0
         name = courseData["name"] as? String ?? ""
         dateUtc = courseData["date_utc"] as? String ?? ""
         dateLocal = courseData["date_local"] as? String ?? ""
-    }
-    
-    init(courseAdapter: AdapterSpaceX) {
-        links = Links(
-            patch: Patch(
-                small: courseAdapter.links.patch.small,
-                large: courseAdapter.links.patch.large
-            ),
-            reddit: Reddit(
-                launch: courseAdapter.links.reddit.launch
-            ),
-            webcast: courseAdapter.links.webcast,
-            youtubeId: courseAdapter.links.youtubeId,
-            wikipedia: courseAdapter.links.wikipedia
-        ) ?? nil
-        crew = [Crew(
-            crew: courseAdapter.crew.,
-            role: courseAdapter.crew.
-        ) ?? []
-        flightNumber = Int(courseAdapter.flightNumber) ?? 0
-        name = courseAdapter.name
-        dateUtc = courseAdapter.dateUtc
-        dateLocal = courseAdapter.dateLocal
     }
     
     static func getSpaceX(_ value: Any) -> [SpaceX] {
@@ -79,24 +58,13 @@ struct Links: Codable {
     }
     
     init(courseData: [String: Any]) {
-        patch = courseData["patch"] as? Patch ?? nil
-        reddit = courseData["reddit"] as? Reddit ?? nil
+        let patchDictionary = courseData["patch"] as? [String: Any] ?? [:]
+        patch = Patch(courseData: patchDictionary)
+        let redditDictionary = courseData["reddit"] as? [String: Any] ?? [:]
+        reddit = Reddit(courseData: redditDictionary)
         webcast = courseData["webcast"] as? String ?? ""
         youtubeId = courseData["youtube_id"] as? String ?? ""
         wikipedia = courseData["wikipedia"] as? String ?? ""
-    }
-    
-    init(courseAdapter: AdapterLinks) {
-        patch = Patch(
-            small: courseAdapter.patch.small,
-            large: courseAdapter.patch.large
-        )
-        reddit = Reddit(
-            launch: courseAdapter.reddit.launch
-        )
-        webcast = courseAdapter.webcast
-        youtubeId = courseAdapter.youtubeId
-        wikipedia = courseAdapter.wikipedia
     }
     
     static func getLinks(_ value: Any) -> [Links] {
@@ -118,12 +86,7 @@ struct Patch: Codable {
         small = courseData["small"] as? String ?? ""
         large = courseData["large"] as? String ?? ""
     }
-    
-    init(courseAdapter: AdapterPatch) {
-        small = courseAdapter.small
-        large = courseAdapter.large
-    }
-    
+
     static func getPatch(_ value: Any) -> [Patch] {
         guard let courseData = value as? [[String: Any]] else {return []}
         return courseData.map { Patch(courseData: $0) }
@@ -139,10 +102,6 @@ struct Reddit: Codable {
     
     init(courseData: [String: Any]) {
         launch = courseData["launch"] as? String ?? ""
-    }
-    
-    init(courseAdapter: AdapterReddit) {
-        launch = courseAdapter.launch
     }
     
     static func getReddit(_ value: Any) -> [Reddit] {
@@ -164,46 +123,10 @@ struct Crew: Codable {
         crew = courseData["crew"] as? String ?? ""
         role = courseData["role"] as? String ?? ""
     }
-    
-    init(courseAdapter: AdapterCrew) {
-        crew = courseAdapter.crew
-        role = courseAdapter.crew
-    }
-    
-    static func getCrew(_ value: Any) -> [Crew] {
-        guard let courseData = value as? [[String: Any]] else {return []}
-        return courseData.map { Crew(courseData: $0) }
+
+    static func getCrew(_ value: [[String: Any]]) -> [Crew] {
+        value.map { Crew(courseData: $0) }
+        
     }
 }
 
-// MARK: - Adapter Models
-struct AdapterSpaceX: Decodable {
-    let links: AdapterLinks
-    let crew: [AdapterCrew]
-    let flightNumber: String
-    let name: String
-    let dateUtc: String
-    let dateLocal: String
-}
-
-struct AdapterLinks: Decodable {
-    let patch: AdapterPatch
-    let reddit: AdapterReddit
-    let webcast: String
-    let youtubeId: String
-    let wikipedia: String
-}
-
-struct AdapterPatch: Decodable {
-    let small: String
-    let large: String
-}
-
-struct AdapterReddit: Decodable {
-    let launch: String
-}
-
-struct AdapterCrew: Decodable {
-    let crew: String
-    let role: String
-}
