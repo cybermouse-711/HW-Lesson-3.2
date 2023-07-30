@@ -42,6 +42,7 @@ final class CollectionViewController: UICollectionViewController {
         name.count
     }
 
+    // MARK: - Override metods
     override func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
