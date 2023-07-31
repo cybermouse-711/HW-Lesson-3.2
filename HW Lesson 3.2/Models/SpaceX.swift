@@ -67,11 +67,6 @@ struct Links: Decodable {
         youtubeId = courseData["youtube_id"] as? String ?? ""
         wikipedia = courseData["wikipedia"] as? String ?? ""
     }
-    
-    // static func getLinks(_ value: Any) -> [Links] {
-   //     guard let courseData = value as? [[String: Any]] else {return []}
-    //    return courseData.map { Links(courseData: $0) }
-   // }
 }
 
 struct Patch: Decodable {
@@ -87,11 +82,6 @@ struct Patch: Decodable {
         small = courseData["small"] as? String ?? ""
         large = courseData["large"] as? String ?? ""
     }
-
- //   static func getPatch(_ value: Any) -> [Patch] {
-  //      guard let courseData = value as? [[String: Any]] else {return []}
- //       return courseData.map { Patch(courseData: $0) }
-  //  }
 }
 
 struct Reddit: Decodable {
@@ -104,11 +94,6 @@ struct Reddit: Decodable {
     init(courseData: [String: Any]) {
         launch = courseData["launch"] as? String ?? ""
     }
-    
-  //  static func getReddit(_ value: Any) -> [Reddit] {
-   //     guard let courseData = value as? [[String: Any]] else {return []}
-  //      return courseData.map { Reddit(courseData: $0) }
-  //  }
 }
 
 struct Crew: Decodable {
