@@ -7,6 +7,11 @@
 
 import UIKit
 
+// MARK: - Protocol
+protocol AddMemberViewControllerDelegate: AnyObject {
+    func getCrew(_ object: Crew)
+}
+
 // MARK: - UIViewController
 final class ComandViewController: UIViewController {
 
@@ -16,7 +21,7 @@ final class ComandViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Singlton
-    private let spaseX = NetworkManager.shared
+    private let spaceX = NetworkManager.shared
 
     // MARK: - Private Property
     private var crew: [Crew] = []
@@ -33,7 +38,7 @@ final class ComandViewController: UIViewController {
     
     // MARK: - Private metods
     private func fetchImage() {
-        spaseX.fetchImage(for: Link.spaseXComandImage) { [weak self] result in
+        spaceX.fetchImage(for: Link.spaseXComandImage) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.comandImageView.image = UIImage(data: image)
@@ -49,7 +54,7 @@ final class ComandViewController: UIViewController {
 // MARK: - Networking
 extension ComandViewController {
     func fetchJSON() {
-        spaseX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
+        spaceX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.crew = data.crew
@@ -79,3 +84,23 @@ extension ComandViewController: UITableViewDataSource {
     }
 }
 
+
+// MARK: - AddMemberViewControllerDelegate
+extension ComandViewController: AddMemberViewControllerDelegate {
+    func getCrew(_ object: Crew) {
+        spaceX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
+            guard let self else { return }
+            switch result {
+            case .success(let newCrew):
+                self.crew.append(contentsOf: newCrew.crew)
+                self.tableView.insertRows(
+                    at: [IndexPath(row: self.crew.count - 1, section: 0)],
+                    with: .automatic
+                )
+            case .failure(let error):
+                print(error.localizedDescription)
+                self.showAlert()
+            }
+        }
+    }
+}

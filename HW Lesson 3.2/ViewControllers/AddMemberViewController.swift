@@ -7,16 +7,30 @@
 
 import UIKit
 
+// MARK: - UIViewController
 class AddMemberViewController: UIViewController {
 
+    // MARK: - @IBOutlet
     @IBOutlet var idTextField: UITextField!
     @IBOutlet var memberTextField: UITextField!
     
+    // MARK: - Delegate
+    var delegate: AddMemberViewControllerDelegate? 
+    
+    // MARK: - Override metods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.gray
-
     }
-
-
+    
+    // MARK: - @IBOutlet
+    @IBAction func saveButton(_ sender: Any) {
+        let crew = Crew(
+            crew: idTextField.text ?? "not ID",
+            role: memberTextField.text ?? "not Role"
+        )
+        delegate?.getCrew(crew)
+        dismiss(animated: true)
+    }
+    
 }
