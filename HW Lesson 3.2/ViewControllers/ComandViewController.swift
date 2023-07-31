@@ -48,9 +48,8 @@ final class ComandViewController: UIViewController {
 
 // MARK: - Networking
 extension ComandViewController {
-    
     func fetchJSON() {
-        spaseX.fetchJSON(SpaceX.self, for: Link.spaceXJSON) { [weak self] result in
+        spaseX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.crew = data.crew

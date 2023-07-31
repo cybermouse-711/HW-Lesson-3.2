@@ -16,13 +16,6 @@ enum Link {
     static let spaceXShatlImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg/810px-SpaceX_Dragon_Endurance_and_the_Earth%27s_horizon.jpg"
 }
 
-
-enum NetworkError: Error {
-    case invalidURL
-    case noData
-    case decodingError
-}
-
 // MARK: - Singlton
 final class NetworkManager {
     
@@ -30,20 +23,14 @@ final class NetworkManager {
     
     private init() {}
     
-    func fetchJSON(for urlString: String, completion: @escaping(Result<[SpaceX], AFError>) -> Void) {
-        
-        guard let url = URL(string: urlString) else {
-            completion(.failure(.invalidURL(url: "")))
-            return
-        }
-        
-        AF.request(url)
+    func fetchJSON(for urlString: String, completion: @escaping(Result<SpaceX, AFError>) -> Void) {
+        AF.request(urlString)
             .validate()
             .responseJSON { dataResponse in
                 switch dataResponse.result {
                 case .success(let value):
-                    let data = SpaceX.getSpaceX(value)
-                    completion(.success(data))
+                    let spaceX = SpaceX.getSpaceX(value)
+                    completion(.success(spaceX))
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -51,13 +38,7 @@ final class NetworkManager {
     }
     
     func fetchImage(for urlString: String, completion: @escaping(Result<Data, AFError>) -> Void) {
-        
-        guard let url = URL(string: urlString) else {
-            completion(.failure(.invalidURL(url: "")))
-            return
-        }
-        
-        AF.request(url)
+        AF.request(urlString)
             .validate()
             .responseData { dataResponse in
                 switch dataResponse.result {

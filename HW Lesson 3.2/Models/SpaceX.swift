@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Models
-struct SpaceX: Codable {
+struct SpaceX: Decodable {
     let links: Links
     var crew: [Crew]
     let flightNumber: Int
@@ -36,13 +36,14 @@ struct SpaceX: Codable {
         dateLocal = courseData["date_local"] as? String ?? ""
     }
     
-    static func getSpaceX(_ value: Any) -> [SpaceX] {
-        guard let courseData = value as? [[String: Any]] else {return []}
-        return courseData.map { SpaceX(courseData: $0) }
+    static func getSpaceX(_ value: Any) -> SpaceX {
+        let courseData = value as? [String: Any] ?? [:]
+        let spaceX = SpaceX(courseData: courseData)
+        return spaceX
     }
 }
 
-struct Links: Codable {
+struct Links: Decodable {
     let patch: Patch
     let reddit: Reddit
     let webcast: String
@@ -67,13 +68,13 @@ struct Links: Codable {
         wikipedia = courseData["wikipedia"] as? String ?? ""
     }
     
-    static func getLinks(_ value: Any) -> [Links] {
-        guard let courseData = value as? [[String: Any]] else {return []}
-        return courseData.map { Links(courseData: $0) }
-    }
+    // static func getLinks(_ value: Any) -> [Links] {
+   //     guard let courseData = value as? [[String: Any]] else {return []}
+    //    return courseData.map { Links(courseData: $0) }
+   // }
 }
 
-struct Patch: Codable {
+struct Patch: Decodable {
     let small: String
     let large: String
     
@@ -87,13 +88,13 @@ struct Patch: Codable {
         large = courseData["large"] as? String ?? ""
     }
 
-    static func getPatch(_ value: Any) -> [Patch] {
-        guard let courseData = value as? [[String: Any]] else {return []}
-        return courseData.map { Patch(courseData: $0) }
-    }
+ //   static func getPatch(_ value: Any) -> [Patch] {
+  //      guard let courseData = value as? [[String: Any]] else {return []}
+ //       return courseData.map { Patch(courseData: $0) }
+  //  }
 }
 
-struct Reddit: Codable {
+struct Reddit: Decodable {
     let launch: String
     
     init(launch: String) {
@@ -104,13 +105,13 @@ struct Reddit: Codable {
         launch = courseData["launch"] as? String ?? ""
     }
     
-    static func getReddit(_ value: Any) -> [Reddit] {
-        guard let courseData = value as? [[String: Any]] else {return []}
-        return courseData.map { Reddit(courseData: $0) }
-    }
+  //  static func getReddit(_ value: Any) -> [Reddit] {
+   //     guard let courseData = value as? [[String: Any]] else {return []}
+  //      return courseData.map { Reddit(courseData: $0) }
+  //  }
 }
 
-struct Crew: Codable {
+struct Crew: Decodable {
     let crew: String
     let role: String
     
