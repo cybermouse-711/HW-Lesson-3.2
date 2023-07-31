@@ -15,7 +15,7 @@ class AddMemberViewController: UIViewController {
     @IBOutlet var memberTextField: UITextField!
     
     // MARK: - Delegate
-    var delegate: AddMemberViewControllerDelegate? 
+    var delegate: AddMemberViewControllerDelegate?
     
     // MARK: - Override metods
     override func viewDidLoad() {
@@ -25,11 +25,11 @@ class AddMemberViewController: UIViewController {
     
     // MARK: - @IBOutlet
     @IBAction func saveButton(_ sender: Any) {
-        let crew = Crew(
+        let newCrew = Crew(
             crew: idTextField.text ?? "not ID",
             role: memberTextField.text ?? "not Role"
         )
-        delegate?.getCrew(crew)
+        delegate?.getCrew(newCrew)
         dismiss(animated: true)
     }
     

@@ -23,8 +23,8 @@ final class ComandViewController: UIViewController {
     // MARK: - Singlton
     private let spaceX = NetworkManager.shared
 
-    // MARK: - Private Property
-    private var crew: [Crew] = []
+    // MARK: - Property
+    var crew: [Crew] = []
     
     // MARK: - Override metods
     override func viewDidLoad() {
@@ -91,8 +91,11 @@ extension ComandViewController: AddMemberViewControllerDelegate {
         spaceX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
             guard let self else { return }
             switch result {
-            case .success(let newCrew):
-                self.crew.append(contentsOf: newCrew.crew)
+            case .success(let spaceX):
+                let newCruews = spaceX.crew
+                for newCruew in newCruews {
+                    self.crew.append(newCruew)
+                }
                 self.tableView.insertRows(
                     at: [IndexPath(row: self.crew.count - 1, section: 0)],
                     with: .automatic
