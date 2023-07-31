@@ -15,7 +15,7 @@ final class LaunchViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Singlton
-    private let spaseX = NetworkManager.shared
+    private let spaceX = NetworkManager.shared
     
     // MARK: - Override metods
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ final class LaunchViewController: UIViewController {
     
     // MARK: - Private metods
     private func fetchImage() {
-        spaseX.fetchImage(for: Link.spaceXCrew5Image) { [weak self] result in
+        spaceX.fetchImage(for: Link.spaceXCrew5Image) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.launchImageView.image = UIImage(data: image)

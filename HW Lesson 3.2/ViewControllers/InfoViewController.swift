@@ -16,7 +16,7 @@ final class InfoViewController: UIViewController {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Singlton
-    private let spaseX = NetworkManager.shared
+    private let spaceX = NetworkManager.shared
     
     // MARK: - Override metods
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ final class InfoViewController: UIViewController {
     
     // MARK: - Private metods
     private func fetchImage() {
-        spaseX.fetchImage(for: Link.spaceXShatlImage) { [weak self] result in
+        spaceX.fetchImage(for: Link.spaceXShatlImage) { [weak self] result in
             switch result {
             case .success(let image):
                 self?.infoImageView.image = UIImage(data: image)
@@ -44,7 +44,6 @@ final class InfoViewController: UIViewController {
 
 // MARK: - Extensions for UILabel
 extension UIViewController {
-    
     func setupInfoLabel(with spaceX: SpaceX) -> String {
         var label = ""
         
@@ -66,7 +65,7 @@ Link:
 // MARK: - Networking
 extension InfoViewController {
     func fetchJSON() {
-        spaseX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
+        spaceX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.infoLabel.text = self?.setupInfoLabel(with: data)
