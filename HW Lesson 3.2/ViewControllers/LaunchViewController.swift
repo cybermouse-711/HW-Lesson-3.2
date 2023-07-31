@@ -31,6 +31,7 @@ final class LaunchViewController: UIViewController {
             switch result {
             case .success(let image):
                 self?.launchImageView.image = UIImage(data: image)
+                self?.activityIndicator.stopAnimating()
             case .failure(let error):
                 print(error.localizedDescription)
                 self?.showAlert()
