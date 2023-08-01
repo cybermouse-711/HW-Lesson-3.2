@@ -97,13 +97,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7if-tc-NqT">
                                                             <rect key="frame" x="33.5" y="0.0" width="57" height="34"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITq-ih-0PB">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITq-ih-0PB">
                                                                     <rect key="frame" x="0.0" y="0.0" width="10.5" height="12"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Member" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHW-VL-MRU">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Member" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHW-VL-MRU">
                                                                     <rect key="frame" x="0.0" y="16" width="57" height="18"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                     <nil key="textColor"/>
@@ -148,7 +148,7 @@
                     <navigationItem key="navigationItem" title="Comand Crew-5" id="DMi-Gq-fFe">
                         <barButtonItem key="rightBarButtonItem" title="+ Add" id="PE7-pv-INO">
                             <connections>
-                                <segue destination="ZKb-9h-SLo" kind="show" id="qGN-fK-yqa"/>
+                                <segue destination="ZKb-9h-SLo" kind="presentation" id="qGN-fK-yqa"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -167,11 +167,11 @@
             <objects>
                 <viewController id="ZKb-9h-SLo" customClass="AddMemberViewController" customModule="HW_Lesson_3_2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lS8-ut-Otx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TSY-Lh-9sX">
-                                <rect key="frame" x="16" y="142.5" width="288" height="83"/>
+                                <rect key="frame" x="16" y="100" width="288" height="83"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ULU-Iu-uzJ">
                                         <rect key="frame" x="0.0" y="11" width="103" height="61"/>
@@ -213,14 +213,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-zp-Jbb">
-                                <rect key="frame" x="120" y="325.5" width="80" height="43.5"/>
+                                <rect key="frame" x="120" y="233" width="80" height="43.5"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="gray" title="Save">
                                     <fontDescription key="titleFontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="saveButton" destination="ZKb-9h-SLo" eventType="touchUpInside" id="VAb-Pu-Eet"/>
                                     <action selector="saveButton:" destination="ZKb-9h-SLo" eventType="touchUpInside" id="dFA-By-wYS"/>
                                 </connections>
                             </button>
@@ -229,8 +228,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="P7I-oD-Q3L" firstAttribute="trailing" secondItem="TSY-Lh-9sX" secondAttribute="trailing" constant="16" id="Mj8-hD-OsP"/>
-                            <constraint firstItem="TSY-Lh-9sX" firstAttribute="top" secondItem="P7I-oD-Q3L" secondAttribute="top" constant="30" id="N68-5c-OCm"/>
-                            <constraint firstItem="jMU-zp-Jbb" firstAttribute="top" secondItem="TSY-Lh-9sX" secondAttribute="bottom" constant="100" id="fxv-7F-sGW"/>
+                            <constraint firstItem="TSY-Lh-9sX" firstAttribute="top" secondItem="P7I-oD-Q3L" secondAttribute="top" constant="100" id="N68-5c-OCm"/>
+                            <constraint firstItem="jMU-zp-Jbb" firstAttribute="top" secondItem="TSY-Lh-9sX" secondAttribute="bottom" constant="50" id="fxv-7F-sGW"/>
                             <constraint firstItem="jMU-zp-Jbb" firstAttribute="centerX" secondItem="lS8-ut-Otx" secondAttribute="centerX" id="nbR-Ql-o2M"/>
                             <constraint firstItem="TSY-Lh-9sX" firstAttribute="leading" secondItem="P7I-oD-Q3L" secondAttribute="leading" constant="16" id="u7X-wH-VMe"/>
                         </constraints>

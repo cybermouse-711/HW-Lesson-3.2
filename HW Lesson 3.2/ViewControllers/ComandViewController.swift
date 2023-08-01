@@ -36,6 +36,11 @@ final class ComandViewController: UIViewController {
         activityIndicator.hidesWhenStopped = true
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let memberVC = segue.destination as? AddMemberViewController else { return }
+        memberVC.delegate = self
+    }
+    
     // MARK: - Private metods
     private func fetchImage() {
         spaceX.fetchImage(for: Link.spaseXComandImage) { [weak self] result in
@@ -88,22 +93,7 @@ extension ComandViewController: UITableViewDataSource {
 // MARK: - AddMemberViewControllerDelegate
 extension ComandViewController: AddMemberViewControllerDelegate {
     func getCrew(_ object: Crew) {
-        spaceX.fetchJSON(for: Link.spaceXJSON) { [weak self] result in
-            guard let self else { return }
-            switch result {
-            case .success(let spaceX):
-                let newCruews = spaceX.crew
-                for newCruew in newCruews {
-                    self.crew.append(newCruew)
-                }
-                self.tableView.insertRows(
-                    at: [IndexPath(row: self.crew.count - 1, section: 0)],
-                    with: .automatic
-                )
-            case .failure(let error):
-                print(error.localizedDescription)
-                self.showAlert()
-            }
-        }
+        crew.append(object)
+        tableView.reloadData()
     }
 }
